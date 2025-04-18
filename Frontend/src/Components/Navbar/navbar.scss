@@ -1,0 +1,193 @@
+/* 🔹 Root Variables */
+:root {
+  --primary-color: hsl(192, 100%, 33%);
+  --secondary-color: hsl(187, 85%, 43%);
+  --gradient-color: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  --white-color: #ffffff;
+  --black-color: hsl(201, 33%, 16%);
+  --text-color: hsl(240, 4%, 36%);
+  --light-gray: hsl(0, 0%, 93%);
+  --gray-color: rgb(155, 155, 155);
+  --input-color: rgb(239, 239, 239);
+  --body-color: rgb(240, 240, 246);
+  --card-bg: rgb(225, 225, 235);
+}
+
+/* 🔹 Navbar Styles */
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white-color);
+  width: 100%;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(2, 15, 29, 0.1);
+}
+
+.header .logo {
+  color: var(--black-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header .navBar {
+  display: flex;
+  align-items: center;
+}
+
+.header .navLists {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* 🔹 Nav Items */
+.header .navLists .navItems .navLink {
+  text-decoration: none;
+  color: var(--black-color);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 🔹 Hover Effect (Disabled in Full Display) */
+@media screen and (min-width: 1025px) {
+  .navLists .navItems .navLink:hover {
+    background-color: transparent !important;
+  }
+}
+
+/* 🔹 Hover Effect for Responsive View (1024px and Below) */
+@media screen and (max-width: 1024px) {
+  .navLists .navItems .navLink:hover {
+    width: 80%;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color);
+    transition: 0.1s ease-in-out;
+  }
+}
+
+/* 🔹 Button Styles */
+.header .btn {
+  background: var(--gradient-color) !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  color: var(--white-color);
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  transition: background 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.header .btn:hover {
+  background: var(--secondary-color) !important;
+  transition: 0.2s ease-in-out;
+}
+
+.header .btn a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+/* 🔹 Close Navbar Button (Mobile Only) */
+.header .closeNavbar {
+  display: none;
+}
+
+/* 🔹 Mobile Menu Button */
+.header .toggleNavbar {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* 🔹 Responsive Navbar */
+@media screen and (max-width: 1024px) {
+  .header .navBar {
+    position: absolute;
+    background: var(--white-color);
+    width: 80%;
+    border-radius: 1rem;
+    top: 6rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+    transition: 0.3s ease-in-out;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    display: none; /* Default hidden */
+  }
+
+  .header .navBar.active {
+    display: flex; /* Show when active */
+  }
+
+  .header .navLists {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .header .btn {
+    width: 50%;
+    text-align: center;
+    margin-top: 1.5rem;
+    border-radius: 5rem;
+    transition: 0.2s ease-in-out;
+  }
+
+  .header .closeNavbar {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .header .closeNavbar:hover {
+    color: var(--secondary-color);
+  }
+
+  .header .toggleNavbar {
+    display: block; /* Mobile Menu Icon */
+  }
+}
+
+/* 🔹 Tablet & Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .header .btn {
+    width: 70%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5rem;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .btn {
+    width: 70%;
+    padding: 1rem;
+    border-radius: 5rem;
+    transition: 0.2s ease-in-out;
+  }
+}
